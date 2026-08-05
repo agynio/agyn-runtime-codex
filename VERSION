@@ -2,4 +2,4 @@
 # among its contents, so bumping one agent CLI rebuilds nothing else.
 #
 # Upstream tags releases rust-v<version>; this is the <version> part.
-CODEX_VERSION=0.146.0
+CODEX_VERSION=0.116.0
