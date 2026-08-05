@@ -4,16 +4,16 @@ The [agent runtime image](https://github.com/agynio/architecture/blob/main/archi
 for the Codex CLI: one agent CLI binary and the `config.json` that describes it.
 
 `agynd` and the `agyn` CLI are **not** in this image. They ship with the
-platform and arrive in the same `/agyn-bin` volume from their own init images,
+platform and arrive in the same `/agyn/bin` volume from their own init images,
 which is what lets this repository pin only its own CLI version — and what makes
 its tags mean something in a version picker.
 
 ## Contents
 
 ```
-/agyn-bin/
+/agyn/bin/
 ├── codex          # the agent CLI
-└── config.json    # {"sdk": "codex", "bin": "/agyn-bin/codex"}
+└── config.json    # {"sdk": "codex", "bin": "/agyn/bin/codex"}
 ```
 
 `agynd` reads `config.json` at startup to learn which SDK module to use and
