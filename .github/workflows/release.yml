@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/agynio/agent-init-codex
+  IMAGE_NAME: ghcr.io/agynio/agyn-runtime-codex
 
 jobs:
   image:
@@ -41,9 +41,7 @@ jobs:
         id: versions
         run: |
           set -a
-          source versions.env
-          echo "AGYND_VERSION=$AGYND_VERSION" >> "$GITHUB_OUTPUT"
-          echo "AGYN_VERSION=$AGYN_VERSION" >> "$GITHUB_OUTPUT"
+          source VERSION
           echo "CODEX_VERSION=$CODEX_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Extract Docker metadata
@@ -66,13 +64,11 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           build-args: |
-            AGYND_VERSION=${{ steps.versions.outputs.AGYND_VERSION }}
-            AGYN_VERSION=${{ steps.versions.outputs.AGYN_VERSION }}
             CODEX_VERSION=${{ steps.versions.outputs.CODEX_VERSION }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha,scope=agent-init-codex
-          cache-to: type=gha,scope=agent-init-codex,mode=max
+          cache-from: type=gha,scope=agyn-runtime-codex
+          cache-to: type=gha,scope=agyn-runtime-codex,mode=max
 
       - name: Verify multi-arch manifest
         run: |
