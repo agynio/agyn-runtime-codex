@@ -1,4 +1,4 @@
 {
   "sdk": "codex",
-  "bin": "/agyn-bin/codex"
+  "bin": "/agyn/bin/codex"
 }
