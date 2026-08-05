@@ -41,4 +41,4 @@ COPY config.json /opt/agyn/config.json
 # compose without coordinating beyond the layout. Running as root is required:
 # the emptyDir is root-owned on a fresh Pod. The copied files are world-readable
 # so the main container can use them whatever user its image defines.
-ENTRYPOINT ["/bin/sh", "-c", "set -e; mkdir -p /agyn/bin; cp /opt/agyn/codex /agyn/bin/codex; chmod 0755 /agyn/bin/codex; cp /opt/agyn/config.json /agyn/bin/config.json; chmod 0644 /agyn/bin/config.json"]
+ENTRYPOINT ["/bin/sh", "-c", "set -e; mkdir -p /agyn/bin; cp /opt/agyn/codex /agyn/bin/codex; chmod 0755 /agyn/bin/codex; cp /opt/agyn/config.json /agyn/config.json; chmod 0644 /agyn/config.json"]
