@@ -13,7 +13,7 @@ its tags mean something in a version picker.
 ```
 /agyn/bin/
 ├── codex          # the agent CLI
-└── config.json    # {"sdk": "codex", "bin": "/agyn/bin/codex"}
+└── config.json    # {"sdk": "codex", "bin": "bin/codex"}
 ```
 
 `agynd` reads `config.json` at startup to learn which SDK module to use and
